@@ -1,0 +1,6 @@
+ID_Ordine,Nome_Cliente,Data_Ordine,Prodotto,Quantità,Prezzo_Unitario,Totale_Ordine
+1001,Mario Rossi,2024-10-01,Laptop,1,899.99,899.99
+1002,Lucia Bianchi,2024-10-03,Monitor,2,199.99,399.98
+1003,Marco Verdi,2024-10-05,Mouse,1,19.99,19.99
+1004,Anna Neri,2024-10-07,Tastiera,3,49.99,149.97
+1005,Luca Blu,2024-10-08,Laptop,1,899.99,899.99
