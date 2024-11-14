@@ -1,4 +1,4 @@
-Seller;Commission
-Adam;5%
-Harry;7%
-Steve;4%
+Seller_ID;Seller;Commission
+1;Adam;5%
+2;Harry;7%
+3;Steve;4%
