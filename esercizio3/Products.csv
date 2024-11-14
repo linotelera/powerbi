@@ -1,7 +1,7 @@
-Seller;Order_ID;Product
-Adam;101;Apples
-Steve;102;Apples
-Harry;103;Lemons
-Harry;104;Oranges
-Steve;105;Lemons
-Adam;106;Lemons
+Order_ID;Product
+101;Apples
+102;Apples
+103;Lemons
+104;Oranges
+105;Lemons
+106;Lemons
