@@ -1,0 +1,34 @@
+[
+  {
+    "id": 101,
+    "nome": "Laptop",
+    "categoria": "Elettronica",
+    "prezzo": 899.99,
+    "specifiche": {
+      "marca": "Dell",
+      "ram": "16GB",
+      "processore": "Intel i7"
+    }
+  },
+  {
+    "id": 102,
+    "nome": "Monitor",
+    "categoria": "Elettronica",
+    "prezzo": 199.99,
+    "specifiche": {
+      "marca": "Samsung",
+      "dimensione": "24 pollici",
+      "risoluzione": "1920x1080"
+    }
+  },
+  {
+    "id": 103,
+    "nome": "Mouse",
+    "categoria": "Accessori",
+    "prezzo": 19.99,
+    "specifiche": {
+      "marca": "Logitech",
+      "tipologia": "Wireless"
+    }
+  }
+]
