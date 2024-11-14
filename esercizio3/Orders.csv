@@ -1,7 +1,7 @@
 Order_ID;Seller;Quantity;Date
-101;Adam;2;1-Oct-24
-102;Steve;10;1-Oct-24
-103;Harry;11;2-Oct-24
-104;Harry;12;2-Oct-24
-105;Steve;20;3-Oct-24
-106;Adam;5;5-Oct-24
+101;1;2;1-Oct-24
+102;2;10;1-Oct-24
+103;3;11;2-Oct-24
+104;2;12;2-Oct-24
+105;1;20;3-Oct-24
+106;2;5;5-Oct-24
