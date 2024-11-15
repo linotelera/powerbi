@@ -19,5 +19,12 @@
     "prodotto": "Mouse",
     "quantità": 1,
     "data": "2024-10-05"
+  },
+  {
+    "id_ordine": 1004,
+    "id_cliente": 3,
+    "prodotto": "Laptop",
+    "quantità": 2,
+    "data": "2024-10-05"
   }
 ]
