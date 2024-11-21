@@ -44,56 +44,87 @@ In questo tutorial creeremo un report Power BI che analizza il fatturato di una 
    - Usa una **Join** sulla colonna `Prodotto`.
    - Aggiungi la colonna `Categoria` alla tabella `Vendite`.
 
----
+## Step 2: Concetto di OLAP e Simulazione in Power BI
 
-## Step 2: Connessione al cubo OLAP
-1. Torna alla schermata principale di Power BI.
-2. Vai su **Ottieni dati** > **SQL Server Analysis Services**.
-3. Seleziona il cubo OLAP con dimensioni e misure, ad esempio:
-   - **Dimensioni**: `Tempo`, `Negozio`, `Categoria`.
-   - **Misure**: `Fatturato`, `Quantità venduta`, `Margine`.
+Un cubo OLAP (Online Analytical Processing) consente l’analisi multidimensionale dei dati. Un cubo contiene:
+- **Dimensioni**: contesto dei dati (es. Tempo, Prodotto, Negozio).
+- **Misure**: valori aggregati calcolati (es. Fatturato, Quantità, Margine).
 
-4. Integra i dati dal cubo con i file CSV utilizzando le relazioni:
-   - Collega la dimensione `Prodotto` con il campo omonimo nella tabella `Vendite`.
+Se non hai accesso a un cubo OLAP, puoi creare una **simulazione OLAP** direttamente in Power BI utilizzando i tuoi dati. In questa sezione, configureremo un modello dati che emula le funzionalità di un cubo OLAP.
 
 ---
 
-## Step 3: Creazione del report
+### 2.1 Creazione di una Simulazione OLAP
 
-### 3.1 Visualizzazioni
-1. Aggiungi una **tabella** che mostri:
-   - Colonne: `Negozio`, `Mese`, `Fatturato`, `Quantità`, `Margine (%)`.
-2. Inserisci un **grafico a barre** per confrontare il fatturato per categoria di prodotto.
-3. Usa un **grafico a linee** per mostrare l'andamento temporale del fatturato.
+1. **Importa i dati**
+   - Segui i passaggi dello Step 1 per importare i file CSV `Vendite` e `Prodotti`.
 
-### 3.2 Slicer e interattività
-1. Aggiungi uno **slicer** per filtrare i dati per `Categoria` o `Anno`.
-2. Configura il drill-through per analizzare i dettagli per negozio o prodotto.
+2. **Crea relazioni tra le tabelle**
+   - Vai alla scheda **Modello** nella barra laterale di Power BI.
+   - Collega:
+     - La colonna `Prodotto` di `Vendite` con la colonna `Prodotto` di `Prodotti`.
+   - Assicurati che la relazione sia **1-Molti**.
 
----
+3. **Crea gerarchie di dimensione**
+   - Per la dimensione "Tempo", crea colonne derivate da `Data` nella tabella `Vendite`:
+     - `Anno = YEAR(Vendite[Data])`
+     - `Mese = FORMAT(Vendite[Data], "MMMM")`
+     - `Giorno = DAY(Vendite[Data])`
+   - Clicca con il tasto destro su `Data` > **Nuova gerarchia** > aggiungi `Anno`, `Mese` e `Giorno`.
 
-### 3.3 Pubblicazione
-1. Clicca su **File** > **Pubblica** per caricare il report su Power BI Service.
-2. Condividi il report con i membri del team o crea una dashboard aziendale.
-
----
-
-## Risultati Finali
-Al termine, avrai un report che:
-- Analizza il fatturato per negozio e categoria di prodotto.
-- Mostra l'andamento temporale e la distribuzione dei margini.
-- Permette di esplorare i dati in modo interattivo con slicer e drill-through.
-
----
-
-## Esempio di Visualizzazioni
-- **Tabella**: Fatturato e margine per negozio e mese.
-- **Grafico a barre**: Fatturato per categoria di prodotto.
-- **Grafico a linee**: Andamento temporale del fatturato.
+4. **Definisci misure calcolate**
+   - Vai su **Home** > **Nuova misura** e crea le seguenti misure:
+     - Fatturato Totale:
+       ```DAX
+       Fatturato Totale = SUM(Vendite[Fatturato])
+       ```
+     - Margine Medio:
+       ```DAX
+       Margine Medio = AVERAGE(Vendite[Margine])
+       ```
+   - Le misure calcolate consentono di analizzare i dati su più dimensioni.
 
 ---
 
-## Prossimi Passi
-- Automatizza l'aggiornamento dei file CSV con Power BI Service.
-- Espandi il report per includere analisi di inventario o previsioni di vendita.
-- Integra ulteriori fonti dati, come API o fogli Google.
+### 2.2 Utilizzo del Modello Dati in Power BI
+
+Una volta configurato il modello dati:
+
+1. **Analisi multidimensionale**
+   - Usa le dimensioni per filtrare o esplorare i dati.
+   - Esempi:
+     - Analizza il Fatturato per `Negozio` e `Categoria di prodotto`.
+     - Mostra le Quantità vendute per `Anno` e `Mese`.
+
+2. **Visualizzazioni**
+   - Crea un **grafico a barre** con:
+     - Asse X: `Categoria`
+     - Valore: `Fatturato Totale`.
+   - Aggiungi un **grafico a linee** per l’andamento temporale:
+     - Asse X: `Mese`
+     - Valore: `Fatturato Totale`.
+
+---
+
+### 2.3 Simulazione di Drill-Down
+
+1. **Drill-down sui grafici**
+   - Aggiungi un grafico a barre con:
+     - Asse X: `Anno`
+     - Valore: `Fatturato Totale`.
+   - Abilita il drill-down cliccando sull’icona della freccia nel grafico.
+   - Clicca su una barra per scendere al livello successivo (es. da `Anno` a `Mese`).
+
+2. **Filtro interattivo con slicer**
+   - Aggiungi uno slicer al report.
+   - Usa `Negozio` o `Categoria` per filtrare i dati.
+
+---
+
+### Prossimi Passi
+
+Questo approccio simula molte funzionalità OLAP senza SQL Server Analysis Services. Se hai accesso a un vero cubo OLAP:
+- Segui i passaggi originali per collegarti al servizio SQL.
+- Combina le dimensioni e le misure del cubo con i tuoi dati locali per un’analisi avanzata.
+
+
