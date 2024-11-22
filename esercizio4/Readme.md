@@ -33,16 +33,19 @@ In questo tutorial creeremo un report Power BI che analizza il fatturato di una 
 ---
 
 ### 1.2 Trasforma i dati
-1. Nella tabella `Vendite`:
+1. Unisci la tabella `Vendite` con `Prodotti`:
+   - Usa una **Join** sulla colonna `Prodotto`.
+   - Aggiungi le colonna `Categoria` e `Prezzo Unitario` alla tabella `Vendite`.
+   - Rinomina le categorie generate in Categoria e Prezzo Unitario
+   
+2. Nella tabella `Vendite`:
    - Modifica il tipo di dati delle colonne `Data`, `Quantità` e `Fatturato`.
    - Aggiungi una colonna calcolata per il margine:
      ```
      Margine (%) = (Fatturato - (Quantità * [Prezzo Unitario])) / Fatturato * 100
      ```
 
-2. Unisci la tabella `Vendite` con `Prodotti`:
-   - Usa una **Join** sulla colonna `Prodotto`.
-   - Aggiungi la colonna `Categoria` alla tabella `Vendite`.
+
 
 ## Step 2: Concetto di OLAP e Simulazione in Power BI
 
@@ -110,13 +113,13 @@ Una volta configurato il modello dati:
 
 1. **Drill-down sui grafici**
    - Aggiungi un grafico a barre con:
-     - Asse X: `Anno`
+     - Asse X: Gerarchia `Data` con Anno, Mese e Giorno
      - Valore: `Fatturato Totale`.
    - Abilita il drill-down cliccando sull’icona della freccia nel grafico.
    - Clicca su una barra per scendere al livello successivo (es. da `Anno` a `Mese`).
 
 2. **Filtro interattivo con slicer**
-   - Aggiungi uno slicer al report.
+   - Aggiungi uno slicer (Filtro Dati) al report.
    - Usa `Negozio` o `Categoria` per filtrare i dati.
 
 ---
