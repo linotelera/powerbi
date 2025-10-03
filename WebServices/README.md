@@ -18,8 +18,7 @@ Il nostro obiettivo è recuperare i dati della popolazione per comune e regione 
 ## URL del Web Service
 Per questo esempio, utilizzeremo il seguente endpoint:
 
-[https://github.com/linotelera/powerbi/blob/main/esercizio1/ordini.json](https://github.com/linotelera/powerbi/blob/main/esercizio1/ordini.json)
-
+https://raw.githubusercontent.com/linotelera/powerbi/refs/heads/main/esercizio1/ordini.json
 
 Questo endpoint restituisce i dati in formato JSON.
 
@@ -32,7 +31,7 @@ Copia e incolla il seguente codice **M** in Power Query per recuperare e trasfor
 ```m
 let
     // URL del Web Service ISTAT
-    url = "https://github.com/linotelera/powerbi/blob/main/esercizio1/ordini.json",
+    url = "https://raw.githubusercontent.com/linotelera/powerbi/refs/heads/main/esercizio1/ordini.json",
 
     // Recupera i dati dal web service
     WebServiceResponse = Web.Contents(url),
