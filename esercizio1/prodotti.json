@@ -10,6 +10,17 @@
       "processore": "Intel i7"
     }
   },
+   {
+    "id": 104,
+    "nome": "Laptop",
+    "categoria": "Elettronica",
+    "prezzo": 500.99,
+    "specifiche": {
+      "marca": "Lenovo",
+      "ram": "16GB",
+      "processore": "Intel i9"
+    }
+  },
   {
     "id": 102,
     "nome": "Monitor",
