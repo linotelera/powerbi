@@ -14,7 +14,7 @@
     "id": 104,
     "nome": "Laptop",
     "categoria": "Elettronica",
-    "prezzo": 500.99,
+    "prezzo": 500,
     "specifiche": {
       "marca": "Lenovo",
       "ram": "16GB",
