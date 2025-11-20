@@ -12,3 +12,5 @@ Gli obiettivi principali del corso sono:
 * Macro in Excel: esploreremo l'automazione di attività ripetitive tramite le macro, semplificando l’esecuzione di operazioni complesse e migliorando la produttività.
 
 Alla fine del corso, avrai acquisito una solida conoscenza pratica di queste funzionalità avanzate, rendendoti capace di gestire e analizzare i dati in modo più efficiente e professionale.
+
+Backup: https://next1.linoproject.net/s/niZdM5Fm4g2nzzL
